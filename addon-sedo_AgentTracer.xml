@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<addon addon_id="sedo_AgentTracer" title="Mobile Agent Tracer" version_string="1.5" version_id="10" url="http://xenforo.com/community/resources/mobile-agent-tracer.1185/" install_callback_class="Sedo_AgentTracer_Installer" install_callback_method="install" uninstall_callback_class="Sedo_AgentTracer_Installer" uninstall_callback_method="uninstall">
+<addon addon_id="sedo_AgentTracer" title="Mobile Agent Tracer" version_string="1.5.1" version_id="11" url="http://xenforo.com/community/resources/mobile-agent-tracer.1185/" install_callback_class="Sedo_AgentTracer_Installer" install_callback_method="install" uninstall_callback_class="Sedo_AgentTracer_Installer" uninstall_callback_method="uninstall">
   <admin_navigation/>
   <admin_permissions>
     <admin_permission admin_permission_id="canManageAgentTracer" display_order="9999"/>
@@ -36,6 +36,7 @@
   </admin_templates>
   <code_events/>
   <code_event_listeners>
+    <listener event_id="init_dependencies" execute_order="10" callback_class="Sedo_AgentTracer_Listener_InitDependencies" callback_method="templateHelpers" active="1" description="Init Template Helper"/>
     <listener event_id="load_class_controller" execute_order="10" callback_class="Sedo_AgentTracer_Listener_ControllerPublic" callback_method="listen" active="1" description="Listerner for ControllerPublic"/>
     <listener event_id="load_class_datawriter" execute_order="10" callback_class="Sedo_AgentTracer_Listener_Datawriter" callback_method="listen" active="1" description="Datawriter Listener"/>
     <listener event_id="template_create" execute_order="10" callback_class="Sedo_AgentTracer_Listener_Preloader" callback_method="preloader" active="1" description="Templates Preloader"/>
@@ -217,7 +218,7 @@ If you don't use this addon, no matter you choose to display basic or detailed i
     <phrase title="sedo_at_raz_confirmation_disable_all" version_id="10" version_string="1.5"><![CDATA[Disable the recording of mobile information for all users]]></phrase>
     <phrase title="sedo_at_raz_confirmation_enable_all" version_id="10" version_string="1.5"><![CDATA[Enable the recording of mobile information for all users]]></phrase>
     <phrase title="sedo_at_reset_fields" version_id="10" version_string="1.5"><![CDATA[Reset all fields]]></phrase>
-    <phrase title="sedo_at_sentfrom" version_id="0" version_string="1"><![CDATA[Send from]]></phrase>
+    <phrase title="sedo_at_sentfrom" version_id="10" version_string="1.5"><![CDATA[Sent from]]></phrase>
     <phrase title="sedo_at_sent_via_device" version_id="0" version_string="1"><![CDATA[{message} {device}]]></phrase>
     <phrase title="sedo_at_style_graphic" version_id="0" version_string="1"><![CDATA[Graphic view]]></phrase>
     <phrase title="sedo_at_style_inline" version_id="0" version_string="1"><![CDATA[Inline view]]></phrase>
@@ -248,92 +249,101 @@ If you don't use this addon, no matter you choose to display basic or detailed i
     </group>
   </style_properties>
   <templates>
-    <template title="sedo_agent" version_id="10" version_string="1.5"><![CDATA[<xen:if is="{$message.sedo_agent} AND {$visitor.permissions.sedo_mobile_agent_tracer.nview}">
+    <template title="sedo_agent" version_id="10" version_string="1.5"><![CDATA[<xen:set var="$agent">{$message.sedo_agent}</xen:set>
+
+<xen:if is="{$agent} AND {xen:helper sedo_at_perms}">
+	<xen:set var="$at_device_start"><span class="sedo_at_devicetype {$agent}"></xen:set>
 
 	<xen:if is="{$sedoAtSimple}">
 		<xen:require css="sedo_agent_simple.css" />
+		<xen:set var="$at_message"><span class="sedo_at_from">{xen:phrase sedo_at_from}</span></xen:set>
+		<xen:set var="$at_device_end"></span>{xen:phrase sedo_at_coma}</xen:set>
 	<xen:else />
 		<xen:require css="sedo_agent.css" />	
+		<xen:set var="$at_message">{xen:phrase sedo_at_sentfrom}</xen:set>
+		<xen:set var="$at_device_end"></span></xen:set>
 		<div class="sedo_at_wrapper">
 	</xen:if>
 
+	<xen:comment>My Kingdom for template phrases compatible with variables</xen:comment>
+
 	<xen:if is="{$xenOptions.sedo_at_displaymaxinfo}">
 
-		<xen:if is="{$message.sedo_agent} == 'isBlackBerryTablet'" >
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isBlackBerryTablet">{xen:phrase sedo_at_isBlackBerryTablet}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isiPad'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isiPad">{xen:phrase sedo_at_isiPad}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isKindle'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isKindle">{xen:phrase sedo_at_isKindle}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}	      			
-		<xen:elseif is="{$message.sedo_agent} == 'isSamsungTablet'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isSamsungTablet">{xen:phrase sedo_at_isSamsungTablet}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isHTCtablet'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isHTCtablet">{xen:phrase sedo_at_isHTCtablet}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isMotorolaTablet'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isMotorolaTablet">{xen:phrase sedo_at_isMotorolaTablet}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}  			
-		<xen:elseif is="{$message.sedo_agent} == 'isAsusTablet'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isAsusTablet">{xen:phrase sedo_at_isAsusTablet}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isNookTablet'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isNookTablet">{xen:phrase sedo_at_isNookTablet}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isAcerTablet'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isAcerTablet">{xen:phrase sedo_at_isAcerTablet}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isYarvikTablet'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isYarvikTablet">{xen:phrase sedo_at_isYarvikTablet}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isToshibaTablet'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isToshibaTablet">{xen:phrase sedo_at_isToshibaTablet}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isCubeTablet'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isCubeTablet">{xen:phrase sedo_at_isCubeTablet}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isCobyTablet'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isCobyTablet">{xen:phrase sedo_at_isCobyTablet}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isSMiTTablet'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isSMiTTablet">{xen:phrase sedo_at_isSMiTTablet}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isRockChipTablet'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isRockChipTablet">{xen:phrase sedo_at_isRockChipTablet}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isTelstraTablet'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isTelstraTablet">{xen:phrase sedo_at_isTelstraTablet}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isPlaystationTablet'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isPlaystationTablet">{xen:phrase sedo_at_isPlaystationTablet}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isNabiTablet'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isNabiTablet">{xen:phrase sedo_at_isNabiTablet}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isNecTablet'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isNecTablet">{xen:phrase sedo_at_isNecTablet}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isHuaweiTablet'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isHuaweiTablet">{xen:phrase sedo_at_isHuaweiTablet}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isbqTablet'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isbqTablet">{xen:phrase sedo_at_isbqTablet}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isFlyTablet'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isFlyTablet">{xen:phrase sedo_at_isFlyTablet}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isLGTablet'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isLGTablet">{xen:phrase sedo_at_isLGTablet}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isTablet'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isTablet">{xen:phrase sedo_at_isTablet}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isiPhone'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isiPhone">{xen:phrase sedo_at_isiPhone}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isBlackBerry'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isBlackBerry">{xen:phrase sedo_at_isBlackBerry}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isHTC'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isHTC">{xen:phrase sedo_at_isHTC}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isNexus'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isNexus">{xen:phrase sedo_at_isNexus}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isDellStreak'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isDellStreak">{xen:phrase sedo_at_isDellStreak}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isMotorola'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isMotorola">{xen:phrase sedo_at_isMotorola}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isSamsung'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isSamsung">{xen:phrase sedo_at_isSamsung}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isSony'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isSony">{xen:phrase sedo_at_isSony}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isAsus'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isAsus">{xen:phrase sedo_at_isAsus}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isPalm'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isPalm">{xen:phrase sedo_at_isPalm}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
-		<xen:elseif is="{$message.sedo_agent} == 'isFly'" />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isFly">{xen:phrase sedo_at_isFly}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
+		<xen:if is="{$agent} == 'isBlackBerryTablet'" >
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isBlackBerryTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isiPad'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isiPad}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isKindle'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isKindle}{xen:raw $at_device_end}"}	      			
+		<xen:elseif is="{$agent} == 'isSamsungTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isSamsungTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isHTCtablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isHTCtablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isMotorolaTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isMotorolaTablet}{xen:raw $at_device_end}"}  			
+		<xen:elseif is="{$agent} == 'isAsusTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isAsusTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isNookTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isNookTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isAcerTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isAcerTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isYarvikTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isYarvikTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isToshibaTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isToshibaTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isCubeTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isCubeTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isCobyTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isCobyTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isSMiTTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isSMiTTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isRockChipTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isRockChipTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isTelstraTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isTelstraTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isPlaystationTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isPlaystationTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isNabiTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isNabiTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isNecTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isNecTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isHuaweiTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isHuaweiTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isbqTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isbqTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isFlyTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isFlyTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isLGTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isLGTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isiPhone'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isiPhone}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isBlackBerry'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isBlackBerry}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isHTC'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isHTC}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isNexus'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isNexus}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isDellStreak'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isDellStreak}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isMotorola'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isMotorola}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isSamsung'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isSamsung}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isSony'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isSony}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isAsus'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isAsus}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isPalm'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isPalm}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isFly'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isFly}{xen:raw $at_device_end}"}
 		<xen:else />
-			{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isMobile">{xen:phrase sedo_at_isMobile}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isMobile}{xen:raw $at_device_end}"}
 		</xen:if>
 	<xen:else />
-		{xen:phrase sedo_at_sent_via_device, "message={xen:if '{$sedoAtSimple}', '<span class="sedo_at_from">{xen:phrase sedo_at_from}</span>', '{xen:phrase sedo_at_sentfrom}'}", 'device=<span class="sedo_at_devicetype isMobile">{xen:phrase sedo_at_isMobile}</span>{xen:if "{$sedoAtSimple}", "{xen:phrase sedo_at_coma}"}'}
+		{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isMobile}{xen:raw $at_device_end}"}
 	</xen:if>
 
 	<xen:if is="!{$sedoAtSimple}">
