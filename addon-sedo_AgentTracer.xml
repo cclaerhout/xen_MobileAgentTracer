@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<addon addon_id="sedo_AgentTracer" title="Mobile Agent Tracer" version_string="1.5.1" version_id="11" url="http://xenforo.com/community/resources/mobile-agent-tracer.1185/" install_callback_class="Sedo_AgentTracer_Installer" install_callback_method="install" uninstall_callback_class="Sedo_AgentTracer_Installer" uninstall_callback_method="uninstall">
+<addon addon_id="sedo_AgentTracer" title="Mobile Agent Tracer" version_string="1.5.2" version_id="12" url="http://xenforo.com/community/resources/mobile-agent-tracer.1185/" install_callback_class="Sedo_AgentTracer_Installer" install_callback_method="install" uninstall_callback_class="Sedo_AgentTracer_Installer" uninstall_callback_method="uninstall">
   <admin_navigation/>
   <admin_permissions>
     <admin_permission admin_permission_id="canManageAgentTracer" display_order="9999"/>
@@ -34,16 +34,18 @@
 
 ]]></template>
   </admin_templates>
+  <admin_template_modifications/>
   <code_events/>
   <code_event_listeners>
-    <listener event_id="init_dependencies" execute_order="10" callback_class="Sedo_AgentTracer_Listener_InitDependencies" callback_method="templateHelpers" active="1" description="Init Template Helper"/>
-    <listener event_id="load_class_controller" execute_order="10" callback_class="Sedo_AgentTracer_Listener_ControllerPublic" callback_method="listen" active="1" description="Listerner for ControllerPublic"/>
-    <listener event_id="load_class_datawriter" execute_order="10" callback_class="Sedo_AgentTracer_Listener_Datawriter" callback_method="listen" active="1" description="Datawriter Listener"/>
-    <listener event_id="template_create" execute_order="10" callback_class="Sedo_AgentTracer_Listener_Preloader" callback_method="preloader" active="1" description="Templates Preloader"/>
-    <listener event_id="template_hook" execute_order="10" callback_class="Sedo_AgentTracer_Listener_Templates" callback_method="listenhooks" active="1" description="Templates Hooks Listener"/>
+    <listener event_id="init_dependencies" execute_order="10" callback_class="Sedo_AgentTracer_Listener_InitDependencies" callback_method="templateHelpers" active="1" hint="" description="Init Template Helper"/>
+    <listener event_id="load_class_controller" execute_order="10" callback_class="Sedo_AgentTracer_Listener_ControllerPublic" callback_method="listen" active="1" hint="" description="Listerner for ControllerPublic"/>
+    <listener event_id="load_class_datawriter" execute_order="10" callback_class="Sedo_AgentTracer_Listener_Datawriter" callback_method="listen" active="1" hint="" description="Datawriter Listener"/>
+    <listener event_id="template_create" execute_order="10" callback_class="Sedo_AgentTracer_Listener_Preloader" callback_method="preloader" active="1" hint="" description="Templates Preloader"/>
+    <listener event_id="template_hook" execute_order="10" callback_class="Sedo_AgentTracer_Listener_Templates" callback_method="listenhooks" active="1" hint="" description="Templates Hooks Listener"/>
   </code_event_listeners>
   <cron/>
   <email_templates/>
+  <email_template_modifications/>
   <optiongroups>
     <group group_id="sedo_agent_tracer" display_order="9999" debug_only="0"/>
     <option option_id="sedo_at_allowraz" edit_format="onoff" data_type="boolean" can_backup="1">
@@ -413,7 +415,49 @@ If you don't use this addon, no matter you choose to display basic or detailed i
 	{xen:property sedo_at_device_type_inline}
 }]]></template>
   </templates>
-  <bb_code_media_sites/>
+  <public_template_modifications>
+    <modification template="conversation_message" modification_key="sedo_at_conversion_message" description="Agent Tracer in Conversations" execution_order="10" enabled="1" action="preg_replace">
+      <find><![CDATA[#<xen:username.+?class="author"\s/>,#i]]></find>
+      <replace><![CDATA[$0
+					<xen:if is="{$xenOptions.sedo_at_auto_conversation} AND {$xenOptions.sedo_at_auto_conversation_style} == 'inline'">
+						<xen:include template="sedo_agent">
+							<xen:set var="$sedoAtSimple">1</xen:set>
+						</xen:include>
+					</xen:if>]]></replace>
+    </modification>
+    <modification template="post" modification_key="sedo_at_posts" description="Agent Tracer in Posts" execution_order="10" enabled="1" action="preg_replace">
+      <find><![CDATA[#<xen:username.+?class="author"\s/>,#i]]></find>
+      <replace><![CDATA[$0
+					<xen:if is="{$xenOptions.sedo_at_auto_thread} AND {$xenOptions.sedo_at_auto_thread_style} == 'inline'">
+						<xen:include template="sedo_agent">
+							<xen:map from="$post" to="$message" />
+							<xen:set var="$sedoAtSimple">1</xen:set>
+						</xen:include>
+					</xen:if>]]></replace>
+    </modification>
+    <modification template="profile_post_comment" modification_key="sedo_at_profile_comments" description="Agent Tracer in Profile Comments" execution_order="10" enabled="1" action="preg_replace">
+      <find><![CDATA[#\s+?<xen:datetime.+?/>#i]]></find>
+      <replace><![CDATA[<span class="muted">
+				<xen:if is="{$xenOptions.sedo_at_auto_profilecomments}">
+					<xen:include template="sedo_agent">
+						<xen:map from="$comment" to="$message" />
+						<xen:set var="$sedoAtSimple">1</xen:set>
+					</xen:include>
+				</xen:if>
+			</span >
+$0]]></replace>
+    </modification>
+    <modification template="profile_post" modification_key="sedo_at_profile_post" description="Agent Tracer in Profile Posts" execution_order="10" enabled="1" action="preg_replace">
+      <find><![CDATA[#<xen:datetime\stime="\$profilePost\.post_date"\s/>#i]]></find>
+      <replace><![CDATA[<xen:if is="{$xenOptions.sedo_at_auto_profileposts}">
+					<xen:include template="sedo_agent">
+						<xen:map from="$profilePost" to="$message" />
+						<xen:set var="$sedoAtSimple">1</xen:set>
+					</xen:include>
+				</xen:if>
+ $0]]></replace>
+    </modification>
+  </public_template_modifications>
   <template_modifications>
     <modification title="Agent Tracer in Conversations" template_title="conversation_message" execute_order="10" modification_type="preg_replace" callback_class="" callback_method="" description="Add Mobile Agent after Author name" version_id="0" version_string="1" active="1">
       <search_value><![CDATA[#<xen:username.+?class="author"\s/>,#i]]></search_value>
@@ -457,4 +501,5 @@ $0]]></replace_value>
  $0]]></replace_value>
     </modification>
   </template_modifications>
+  <bb_code_media_sites/>
 </addon>
