@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<addon addon_id="sedo_AgentTracer" title="Mobile Agent Tracer" version_string="1.5.2" version_id="12" url="http://xenforo.com/community/resources/mobile-agent-tracer.1185/" install_callback_class="Sedo_AgentTracer_Installer" install_callback_method="install" uninstall_callback_class="Sedo_AgentTracer_Installer" uninstall_callback_method="uninstall">
+<addon addon_id="sedo_AgentTracer" title="Mobile Agent Tracer" version_string="1.5.3" version_id="13" url="http://xenforo.com/community/resources/mobile-agent-tracer.1185/" install_callback_class="Sedo_AgentTracer_Installer" install_callback_method="install" uninstall_callback_class="Sedo_AgentTracer_Installer" uninstall_callback_method="uninstall">
   <admin_navigation/>
   <admin_permissions>
     <admin_permission admin_permission_id="canManageAgentTracer" display_order="9999"/>
@@ -181,40 +181,94 @@ If you don't use this addon, no matter you choose to display basic or detailed i
     <phrase title="sedo_at_info_basic" version_id="1" version_string="1.1"><![CDATA[Basic information]]></phrase>
     <phrase title="sedo_at_info_detailed" version_id="1" version_string="1.1"><![CDATA[Detailed information]]></phrase>
     <phrase title="sedo_at_isAcerTablet" version_id="0" version_string="1"><![CDATA[an Acer tablet]]></phrase>
+    <phrase title="sedo_at_isAdvanTablet" version_id="12" version_string="1.5.2"><![CDATA[a Advan tablet]]></phrase>
+    <phrase title="sedo_at_isAllFineTablet" version_id="12" version_string="1.5.2"><![CDATA[a AllFine tablet]]></phrase>
+    <phrase title="sedo_at_isAllViewTablet" version_id="12" version_string="1.5.2"><![CDATA[an AllView tablet]]></phrase>
     <phrase title="sedo_at_isAsus" version_id="0" version_string="1"><![CDATA[an Asus mobile device]]></phrase>
     <phrase title="sedo_at_isAsusTablet" version_id="0" version_string="1"><![CDATA[an Asus Tablet]]></phrase>
     <phrase title="sedo_at_isBlackBerry" version_id="0" version_string="1"><![CDATA[a BlackBerry]]></phrase>
     <phrase title="sedo_at_isBlackBerryTablet" version_id="0" version_string="1"><![CDATA[a BlackBerry tablet]]></phrase>
     <phrase title="sedo_at_isbqTablet" version_id="6" version_string="1.4"><![CDATA[a Bq tablet]]></phrase>
+    <phrase title="sedo_at_isBronchoTablet" version_id="12" version_string="1.5.2"><![CDATA[a Broncho tablet]]></phrase>
+    <phrase title="sedo_at_isChangJiaTablet" version_id="12" version_string="1.5.2"><![CDATA[a ChangJia tablet]]></phrase>
     <phrase title="sedo_at_isCobyTablet" version_id="2" version_string="1.2"><![CDATA[a Coby tablet]]></phrase>
+    <phrase title="sedo_at_isConcordeTablet" version_id="12" version_string="1.5.2"><![CDATA[a Concorde tablet]]></phrase>
+    <phrase title="sedo_at_isCrestaTablet" version_id="12" version_string="1.5.2"><![CDATA[a Cresta tablet]]></phrase>
     <phrase title="sedo_at_isCubeTablet" version_id="2" version_string="1.2"><![CDATA[a Cube tablet]]></phrase>
+    <phrase title="sedo_at_isDanewTablet" version_id="12" version_string="1.5.2"><![CDATA[a Danew tablet]]></phrase>
+    <phrase title="sedo_at_isDanyTechTablet" version_id="12" version_string="1.5.2"><![CDATA[a DanyTech tablet]]></phrase>
     <phrase title="sedo_at_isDellStreak" version_id="0" version_string="1"><![CDATA[a Dell Streak]]></phrase>
+    <phrase title="sedo_at_isDPSTablet" version_id="12" version_string="1.5.2"><![CDATA[a DPS tablet]]></phrase>
+    <phrase title="sedo_at_isEbodaTablet" version_id="12" version_string="1.5.2"><![CDATA[an Eboda tablet]]></phrase>
+    <phrase title="sedo_at_isECSTablet" version_id="12" version_string="1.5.2"><![CDATA[a ECS tablet]]></phrase>
+    <phrase title="sedo_at_isEssentielBTablet" version_id="12" version_string="1.5.2"><![CDATA[an EssentielB tablet]]></phrase>
     <phrase title="sedo_at_isFly" version_id="6" version_string="1.4"><![CDATA[a Fly device]]></phrase>
     <phrase title="sedo_at_isFlyTablet" version_id="6" version_string="1.4"><![CDATA[a Fly tablet]]></phrase>
+    <phrase title="sedo_at_isFujitsuTablet" version_id="12" version_string="1.5.2"><![CDATA[a Fujitsu tablet]]></phrase>
+    <phrase title="sedo_at_isGalapadTablet" version_id="12" version_string="1.5.2"><![CDATA[a Galapad tablet]]></phrase>
+    <phrase title="sedo_at_isGoCleverTablet" version_id="12" version_string="1.5.2"><![CDATA[a GoClever tablet]]></phrase>
+    <phrase title="sedo_at_isGUTablet" version_id="12" version_string="1.5.2"><![CDATA[a GU tablet]]></phrase>
+    <phrase title="sedo_at_isHCLTablet" version_id="12" version_string="1.5.2"><![CDATA[a HCL tablet]]></phrase>
+    <phrase title="sedo_at_isHPTablet" version_id="12" version_string="1.5.2"><![CDATA[a HP tablet]]></phrase>
     <phrase title="sedo_at_isHTC" version_id="0" version_string="1"><![CDATA[a HTC device]]></phrase>
     <phrase title="sedo_at_isHTCtablet" version_id="0" version_string="1"><![CDATA[a HTC tablet]]></phrase>
     <phrase title="sedo_at_isHuaweiTablet" version_id="6" version_string="1.4"><![CDATA[a Huawei tablet]]></phrase>
+    <phrase title="sedo_at_isiMobile" version_id="12" version_string="1.5.2"><![CDATA[an iMobile device]]></phrase>
+    <phrase title="sedo_at_isiMobileTablet" version_id="12" version_string="1.5.2"><![CDATA[an iMobile tablet]]></phrase>
+    <phrase title="sedo_at_isIntensoTablet" version_id="12" version_string="1.5.2"><![CDATA[an Intenso tablet]]></phrase>
     <phrase title="sedo_at_isiPad" version_id="0" version_string="1"><![CDATA[an iPad]]></phrase>
     <phrase title="sedo_at_isiPhone" version_id="0" version_string="1"><![CDATA[an iPhone]]></phrase>
+    <phrase title="sedo_at_isIRUTablet" version_id="12" version_string="1.5.2"><![CDATA[an IRU tablet]]></phrase>
+    <phrase title="sedo_at_isKarbonnTablet" version_id="12" version_string="1.5.2"><![CDATA[a Karbonn tablet]]></phrase>
     <phrase title="sedo_at_isKindle" version_id="0" version_string="1"><![CDATA[a Kindle]]></phrase>
+    <phrase title="sedo_at_isKoboTablet" version_id="12" version_string="1.5.2"><![CDATA[a Kobo tablet]]></phrase>
+    <phrase title="sedo_at_isLenovoTablet" version_id="12" version_string="1.5.2"><![CDATA[a Lenovo tablet]]></phrase>
+    <phrase title="sedo_at_isLG" version_id="12" version_string="1.5.2"><![CDATA[a LG device]]></phrase>
+    <phrase title="sedo_at_isMediatekTablet" version_id="12" version_string="1.5.2"><![CDATA[a Mediatek tablet]]></phrase>
+    <phrase title="sedo_at_isMegafonTablet" version_id="12" version_string="1.5.2"><![CDATA[a Megafon tablet]]></phrase>
+    <phrase title="sedo_at_isMicromax" version_id="12" version_string="1.5.2"><![CDATA[a Micromax device]]></phrase>
+    <phrase title="sedo_at_isMicromaxTablet" version_id="12" version_string="1.5.2"><![CDATA[a Micromax tablet]]></phrase>
+    <phrase title="sedo_at_isMIDTablet" version_id="12" version_string="1.5.2"><![CDATA[a MID tablet]]></phrase>
     <phrase title="sedo_at_isMobile" version_id="0" version_string="1"><![CDATA[a mobile device]]></phrase>
+    <phrase title="sedo_at_isModecomTablet" version_id="12" version_string="1.5.2"><![CDATA[a Modecom tablet]]></phrase>
     <phrase title="sedo_at_isMotorola" version_id="0" version_string="1"><![CDATA[a Motorola device]]></phrase>
     <phrase title="sedo_at_isMotorolaTablet" version_id="0" version_string="1"><![CDATA[a Motorola tablet]]></phrase>
     <phrase title="sedo_at_isNabiTablet" version_id="6" version_string="1.4"><![CDATA[a Nabi tablet]]></phrase>
     <phrase title="sedo_at_isNecTablet" version_id="6" version_string="1.4"><![CDATA[a Nec tablet]]></phrase>
     <phrase title="sedo_at_isNexus" version_id="0" version_string="1"><![CDATA[a Nexus device]]></phrase>
     <phrase title="sedo_at_isNookTablet" version_id="0" version_string="1"><![CDATA[a Nook Tablet]]></phrase>
+    <phrase title="sedo_at_isOvermaxTablet" version_id="12" version_string="1.5.2"><![CDATA[an Overmax tablet]]></phrase>
     <phrase title="sedo_at_isPalm" version_id="0" version_string="1"><![CDATA[a Palm device]]></phrase>
+    <phrase title="sedo_at_isPantechTablet" version_id="12" version_string="1.5.2"><![CDATA[a Pantech tablet]]></phrase>
     <phrase title="sedo_at_isPlaystationTablet" version_id="6" version_string="1.4"><![CDATA[a Playstation device]]></phrase>
+    <phrase title="sedo_at_isPointOfViewTablet" version_id="12" version_string="1.5.2"><![CDATA[a PointOfView tablet]]></phrase>
+    <phrase title="sedo_at_isPositivoTablet" version_id="12" version_string="1.5.2"><![CDATA[a Positivo tablet]]></phrase>
+    <phrase title="sedo_at_isPrestigioTablet" version_id="12" version_string="1.5.2"><![CDATA[a Prestigio tablet]]></phrase>
+    <phrase title="sedo_at_isPROSCANTablet" version_id="12" version_string="1.5.2"><![CDATA[a Proscan tablet]]></phrase>
+    <phrase title="sedo_at_isPyleAudioTablet" version_id="12" version_string="1.5.2"><![CDATA[a PyleAudio tablet]]></phrase>
     <phrase title="sedo_at_isRockChipTablet" version_id="2" version_string="1.2"><![CDATA[a RockChip tablet]]></phrase>
+    <phrase title="sedo_at_isRossMoorTablet" version_id="12" version_string="1.5.2"><![CDATA[a RossMoor tablet]]></phrase>
     <phrase title="sedo_at_isSamsung" version_id="0" version_string="1"><![CDATA[a Samsung mobile device]]></phrase>
     <phrase title="sedo_at_isSamsungTablet" version_id="0" version_string="1"><![CDATA[a Samsung Tablet]]></phrase>
+    <phrase title="sedo_at_isSimValley" version_id="12" version_string="1.5.2"><![CDATA[a SimValley device]]></phrase>
     <phrase title="sedo_at_isSMiTTablet" version_id="2" version_string="1.2"><![CDATA[a SMiT tablet]]></phrase>
     <phrase title="sedo_at_isSony" version_id="0" version_string="1"><![CDATA[a Sony mobile device]]></phrase>
+    <phrase title="sedo_at_isSonyTablet" version_id="12" version_string="1.5.2"><![CDATA[a Sony tablet]]></phrase>
+    <phrase title="sedo_at_isStorexTablet" version_id="12" version_string="1.5.2"><![CDATA[a Storex tablet]]></phrase>
+    <phrase title="sedo_at_isSurfaceTablet" version_id="12" version_string="1.5.2"><![CDATA[a Surface tablet]]></phrase>
     <phrase title="sedo_at_isTablet" version_id="0" version_string="1"><![CDATA[a tablet]]></phrase>
     <phrase title="sedo_at_isTelstraTablet" version_id="2" version_string="1.2"><![CDATA[a Telstra tablet]]></phrase>
+    <phrase title="sedo_at_isTexetTablet" version_id="12" version_string="1.5.2"><![CDATA[a Texet tablet]]></phrase>
+    <phrase title="sedo_at_isTolinoTablet" version_id="12" version_string="1.5.2"><![CDATA[a Tolino tablet]]></phrase>
     <phrase title="sedo_at_isToshibaTablet" version_id="2" version_string="1.2"><![CDATA[a Toshiba tablet]]></phrase>
+    <phrase title="sedo_at_isTrekstorTablet" version_id="12" version_string="1.5.2"><![CDATA[a Trekstor tablet]]></phrase>
+    <phrase title="sedo_at_isVersusTablet" version_id="12" version_string="1.5.2"><![CDATA[a Versus tablet]]></phrase>
+    <phrase title="sedo_at_isVistureTablet" version_id="12" version_string="1.5.2"><![CDATA[a Visture tablet]]></phrase>
+    <phrase title="sedo_at_isVodafoneTablet" version_id="12" version_string="1.5.2"><![CDATA[a Vodafone tablet]]></phrase>
+    <phrase title="sedo_at_isVoninoTablet" version_id="12" version_string="1.5.2"><![CDATA[a Vonino tablet]]></phrase>
     <phrase title="sedo_at_isYarvikTablet" version_id="0" version_string="1"><![CDATA[a Yarvik tablet]]></phrase>
+    <phrase title="sedo_at_isYONESTablet" version_id="12" version_string="1.5.2"><![CDATA[a Yonest tablet]]></phrase>
+    <phrase title="sedo_at_isZyncTablet" version_id="12" version_string="1.5.2"><![CDATA[a Zync tablet]]></phrase>
     <phrase title="sedo_at_no_admin_perms" version_id="10" version_string="1.5"><![CDATA[You don't have the admin permission to use this function]]></phrase>
     <phrase title="sedo_at_raz_confirmation" version_id="10" version_string="1.5"><![CDATA[Reset user privacy fields]]></phrase>
     <phrase title="sedo_at_raz_confirmation_disable_all" version_id="10" version_string="1.5"><![CDATA[Disable the recording of mobile information for all users]]></phrase>
@@ -251,7 +305,7 @@ If you don't use this addon, no matter you choose to display basic or detailed i
     </group>
   </style_properties>
   <templates>
-    <template title="sedo_agent" version_id="10" version_string="1.5"><![CDATA[<xen:set var="$agent">{$message.sedo_agent}</xen:set>
+    <template title="sedo_agent" version_id="12" version_string="1.5.2"><![CDATA[<xen:set var="$agent">{$message.sedo_agent}</xen:set>
 
 <xen:if is="{$agent} AND {xen:helper sedo_at_perms}">
 	<xen:set var="$at_device_start"><span class="sedo_at_devicetype {$agent}"></xen:set>
@@ -341,6 +395,114 @@ If you don't use this addon, no matter you choose to display basic or detailed i
 			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isPalm}{xen:raw $at_device_end}"}
 		<xen:elseif is="{$agent} == 'isFly'" />
 			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isFly}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isLG'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isLG}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isMicromax'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isMicromax}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isiMobile'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isiMobile}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isSimValley'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isSimValley}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isSurfaceTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isSurfaceTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isHPTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isHPTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isFujitsuTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isFujitsuTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isPrestigioTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isPrestigioTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isLenovoTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isLenovoTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isIntensoTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isIntensoTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isIRUTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isIRUTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isMegafonTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isMegafonTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isEbodaTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isEbodaTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isAllViewTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isAllViewTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isSonyTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isSonyTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isMIDTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isMIDTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isPantechTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isPantechTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isBronchoTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isBronchoTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isVersusTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isVersusTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isZyncTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isZyncTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isPositivoTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isPositivoTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isKoboTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isKoboTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isDanewTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isDanewTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isTexetTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isTexetTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isTrekstorTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isTrekstorTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isPyleAudioTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isPyleAudioTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isAdvanTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isAdvanTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isDanyTechTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isDanyTechTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isGalapadTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isGalapadTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isMicromaxTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isMicromaxTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isKarbonnTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isKarbonnTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isAllFineTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isAllFineTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isPROSCANTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isPROSCANTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isYONESTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isYONESTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isChangJiaTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isChangJiaTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isGUTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isGUTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isPointOfViewTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isPointOfViewTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isOvermaxTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isOvermaxTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isHCLTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isHCLTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isDPSTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isDPSTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isVistureTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isVistureTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isCrestaTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isCrestaTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isMediatekTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isMediatekTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isConcordeTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isConcordeTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isGoCleverTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isGoCleverTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isModecomTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isModecomTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isVoninoTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isVoninoTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isECSTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isECSTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isStorexTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isStorexTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isVodafoneTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isVodafoneTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isEssentielBTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isEssentielBTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isRossMoorTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isRossMoorTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isiMobileTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isiMobileTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isTolinoTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isTolinoTablet}{xen:raw $at_device_end}"}
 		<xen:else />
 			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isMobile}{xen:raw $at_device_end}"}
 		</xen:if>
@@ -502,4 +664,5 @@ $0]]></replace_value>
     </modification>
   </template_modifications>
   <bb_code_media_sites/>
+  <bb_codes/>
 </addon>
