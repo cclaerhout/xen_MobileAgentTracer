@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<addon addon_id="sedo_AgentTracer" title="Mobile Agent Tracer" version_string="1.5.4" version_id="14" url="http://xenforo.com/community/resources/mobile-agent-tracer.1185/" install_callback_class="Sedo_AgentTracer_Installer" install_callback_method="install" uninstall_callback_class="Sedo_AgentTracer_Installer" uninstall_callback_method="uninstall">
+<addon addon_id="sedo_AgentTracer" title="Mobile Agent Tracer" version_string="1.5.5" version_id="15" url="http://xenforo.com/community/resources/mobile-agent-tracer.1185/" install_callback_class="Sedo_AgentTracer_Installer" install_callback_method="install" uninstall_callback_class="Sedo_AgentTracer_Installer" uninstall_callback_method="uninstall">
   <admin_navigation/>
   <admin_permissions>
     <admin_permission admin_permission_id="canManageAgentTracer" display_order="9999"/>
@@ -187,6 +187,7 @@ If you don't use this addon, no matter you choose to display basic or detailed i
     <phrase title="sedo_at_isAllViewTablet" version_id="12" version_string="1.5.2"><![CDATA[an AllView tablet]]></phrase>
     <phrase title="sedo_at_isAmoi" version_id="13" version_string="1.5.3"><![CDATA[an Amoi device]]></phrase>
     <phrase title="sedo_at_isAMPETablet" version_id="13" version_string="1.5.3"><![CDATA[an Ampet tablet]]></phrase>
+    <phrase title="sedo_at_isAocTablet" version_id="15" version_string="1.5.5"><![CDATA[an Aoc tablet]]></phrase>
     <phrase title="sedo_at_isAsus" version_id="0" version_string="1"><![CDATA[an Asus mobile device]]></phrase>
     <phrase title="sedo_at_isAsusTablet" version_id="0" version_string="1"><![CDATA[an Asus Tablet]]></phrase>
     <phrase title="sedo_at_isAudioSonicTablet" version_id="13" version_string="1.5.3"><![CDATA[an AudioSonic tablet]]></phrase>
@@ -223,6 +224,7 @@ If you don't use this addon, no matter you choose to display basic or detailed i
     <phrase title="sedo_at_isHTC" version_id="0" version_string="1"><![CDATA[a HTC device]]></phrase>
     <phrase title="sedo_at_isHTCtablet" version_id="0" version_string="1"><![CDATA[a HTC tablet]]></phrase>
     <phrase title="sedo_at_isHuaweiTablet" version_id="6" version_string="1.4"><![CDATA[a Huawei tablet]]></phrase>
+    <phrase title="sedo_at_isHudl" version_id="15" version_string="1.5.5"><![CDATA[a Hudl tablet]]></phrase>
     <phrase title="sedo_at_isIconbitTablet" version_id="13" version_string="1.5.3"><![CDATA[an Iconbit tablet]]></phrase>
     <phrase title="sedo_at_isiJoyTablet" version_id="13" version_string="1.5.3"><![CDATA[an iJoy tablet]]></phrase>
     <phrase title="sedo_at_isiMobile" version_id="12" version_string="1.5.2"><![CDATA[an iMobile device]]></phrase>
@@ -238,6 +240,7 @@ If you don't use this addon, no matter you choose to display basic or detailed i
     <phrase title="sedo_at_isKindle" version_id="0" version_string="1"><![CDATA[a Kindle]]></phrase>
     <phrase title="sedo_at_isKoboTablet" version_id="12" version_string="1.5.2"><![CDATA[a Kobo tablet]]></phrase>
     <phrase title="sedo_at_isLavaTablet" version_id="13" version_string="1.5.3"><![CDATA[a Lava tablet]]></phrase>
+    <phrase title="sedo_at_isLeaderTablet" version_id="15" version_string="1.5.5"><![CDATA[a Leader tablet]]></phrase>
     <phrase title="sedo_at_isLenovoTablet" version_id="12" version_string="1.5.2"><![CDATA[a Lenovo tablet]]></phrase>
     <phrase title="sedo_at_isLG" version_id="12" version_string="1.5.2"><![CDATA[a LG device]]></phrase>
     <phrase title="sedo_at_isMediatekTablet" version_id="12" version_string="1.5.2"><![CDATA[a Mediatek tablet]]></phrase>
@@ -258,6 +261,7 @@ If you don't use this addon, no matter you choose to display basic or detailed i
     <phrase title="sedo_at_isNintendo" version_id="13" version_string="1.5.3"><![CDATA[a Nintendo device]]></phrase>
     <phrase title="sedo_at_isNookTablet" version_id="0" version_string="1"><![CDATA[a Nook Tablet]]></phrase>
     <phrase title="sedo_at_isOdysTablet" version_id="13" version_string="1.5.3"><![CDATA[an Odys tablet]]></phrase>
+    <phrase title="sedo_at_isOndaTablet" version_id="15" version_string="1.5.5"><![CDATA[an Onda tablet]]></phrase>
     <phrase title="sedo_at_isOvermaxTablet" version_id="12" version_string="1.5.2"><![CDATA[an Overmax tablet]]></phrase>
     <phrase title="sedo_at_isPalm" version_id="0" version_string="1"><![CDATA[a Palm device]]></phrase>
     <phrase title="sedo_at_isPantechTablet" version_id="12" version_string="1.5.2"><![CDATA[a Pantech tablet]]></phrase>
@@ -293,6 +297,8 @@ If you don't use this addon, no matter you choose to display basic or detailed i
     <phrase title="sedo_at_isVistureTablet" version_id="12" version_string="1.5.2"><![CDATA[a Visture tablet]]></phrase>
     <phrase title="sedo_at_isVodafoneTablet" version_id="12" version_string="1.5.2"><![CDATA[a Vodafone tablet]]></phrase>
     <phrase title="sedo_at_isVoninoTablet" version_id="12" version_string="1.5.2"><![CDATA[a Vonino tablet]]></phrase>
+    <phrase title="sedo_at_isWiko" version_id="15" version_string="1.5.5"><![CDATA[a Wiko device]]></phrase>
+    <phrase title="sedo_at_isWolderTablet" version_id="15" version_string="1.5.5"><![CDATA[a Wolder tablet]]></phrase>
     <phrase title="sedo_at_isWolfgang" version_id="13" version_string="1.5.3"><![CDATA[a Wolfgang device]]></phrase>
     <phrase title="sedo_at_isXoroTablet" version_id="13" version_string="1.5.3"><![CDATA[a Xoro tablet]]></phrase>
     <phrase title="sedo_at_isYarvikTablet" version_id="0" version_string="1"><![CDATA[a Yarvik tablet]]></phrase>
@@ -549,6 +555,16 @@ If you don't use this addon, no matter you choose to display basic or detailed i
 			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isUbislateTablet}{xen:raw $at_device_end}"}
 		<xen:elseif is="{$agent} == 'isPocketBookTablet'" />
 			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isPocketBookTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isOndaTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isOndaTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isAocTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isAocTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isWolderTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isWolderTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isLeaderTablet'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isLeaderTablet}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isHudl'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isHudl}{xen:raw $at_device_end}"}			
 	<xen:comment>Phones</xen:comment>
 		<xen:elseif is="{$agent} == 'isiPhone'" />
 			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isiPhone}{xen:raw $at_device_end}"}
@@ -590,6 +606,8 @@ If you don't use this addon, no matter you choose to display basic or detailed i
 			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isAmoi}{xen:raw $at_device_end}"}
 		<xen:elseif is="{$agent} == 'isINQ'" />
 			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isINQ}{xen:raw $at_device_end}"}
+		<xen:elseif is="{$agent} == 'isWiko'" />
+			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isWiko}{xen:raw $at_device_end}"}
 		<xen:else />
 			{xen:phrase sedo_at_sent_via_device, "message={xen:raw $at_message}", "device={xen:raw $at_device_start}{xen:phrase sedo_at_isMobile}{xen:raw $at_device_end}"}
 		</xen:if>
