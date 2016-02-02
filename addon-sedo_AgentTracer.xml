@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<addon addon_id="sedo_AgentTracer" title="Mobile Agent Tracer" version_string="1.5.5" version_id="15" url="http://xenforo.com/community/resources/mobile-agent-tracer.1185/" install_callback_class="Sedo_AgentTracer_Installer" install_callback_method="install" uninstall_callback_class="Sedo_AgentTracer_Installer" uninstall_callback_method="uninstall">
+<addon addon_id="sedo_AgentTracer" title="Mobile Agent Tracer" version_string="1.5.6" version_id="16" url="http://xenforo.com/community/resources/mobile-agent-tracer.1185/" install_callback_class="Sedo_AgentTracer_Installer" install_callback_method="install" uninstall_callback_class="Sedo_AgentTracer_Installer" uninstall_callback_method="uninstall">
   <admin_navigation/>
   <admin_permissions>
     <admin_permission admin_permission_id="canManageAgentTracer" display_order="9999"/>
@@ -181,20 +181,20 @@ If you don't use this addon, no matter you choose to display basic or detailed i
     <phrase title="sedo_at_info_basic" version_id="1" version_string="1.1"><![CDATA[Basic information]]></phrase>
     <phrase title="sedo_at_info_detailed" version_id="1" version_string="1.1"><![CDATA[Detailed information]]></phrase>
     <phrase title="sedo_at_isAcerTablet" version_id="0" version_string="1"><![CDATA[an Acer tablet]]></phrase>
-    <phrase title="sedo_at_isAdvanTablet" version_id="12" version_string="1.5.2"><![CDATA[a Advan tablet]]></phrase>
+    <phrase title="sedo_at_isAdvanTablet" version_id="16" version_string="1.5.6"><![CDATA[an Advan tablet]]></phrase>
     <phrase title="sedo_at_isAlcatel" version_id="13" version_string="1.5.3"><![CDATA[an Alcatel device]]></phrase>
-    <phrase title="sedo_at_isAllFineTablet" version_id="12" version_string="1.5.2"><![CDATA[a AllFine tablet]]></phrase>
+    <phrase title="sedo_at_isAllFineTablet" version_id="16" version_string="1.5.6"><![CDATA[an AllFine tablet]]></phrase>
     <phrase title="sedo_at_isAllViewTablet" version_id="12" version_string="1.5.2"><![CDATA[an AllView tablet]]></phrase>
     <phrase title="sedo_at_isAmoi" version_id="13" version_string="1.5.3"><![CDATA[an Amoi device]]></phrase>
-    <phrase title="sedo_at_isAMPETablet" version_id="13" version_string="1.5.3"><![CDATA[an Ampet tablet]]></phrase>
-    <phrase title="sedo_at_isAocTablet" version_id="15" version_string="1.5.5"><![CDATA[an Aoc tablet]]></phrase>
+    <phrase title="sedo_at_isAMPETablet" version_id="16" version_string="1.5.6"><![CDATA[an AMPE tablet]]></phrase>
+    <phrase title="sedo_at_isAocTablet" version_id="16" version_string="1.5.6"><![CDATA[an AOC tablet]]></phrase>
     <phrase title="sedo_at_isAsus" version_id="0" version_string="1"><![CDATA[an Asus mobile device]]></phrase>
-    <phrase title="sedo_at_isAsusTablet" version_id="0" version_string="1"><![CDATA[an Asus Tablet]]></phrase>
+    <phrase title="sedo_at_isAsusTablet" version_id="16" version_string="1.5.6"><![CDATA[an Asus tablet]]></phrase>
     <phrase title="sedo_at_isAudioSonicTablet" version_id="13" version_string="1.5.3"><![CDATA[an AudioSonic tablet]]></phrase>
     <phrase title="sedo_at_isBlackBerry" version_id="0" version_string="1"><![CDATA[a BlackBerry]]></phrase>
     <phrase title="sedo_at_isBlackBerryTablet" version_id="0" version_string="1"><![CDATA[a BlackBerry tablet]]></phrase>
     <phrase title="sedo_at_isBlaupunktTablet" version_id="13" version_string="1.5.3"><![CDATA[a Blaupunkt tablet]]></phrase>
-    <phrase title="sedo_at_isbqTablet" version_id="6" version_string="1.4"><![CDATA[a Bq tablet]]></phrase>
+    <phrase title="sedo_at_isbqTablet" version_id="16" version_string="1.5.6"><![CDATA[a BQ tablet]]></phrase>
     <phrase title="sedo_at_isBronchoTablet" version_id="12" version_string="1.5.2"><![CDATA[a Broncho tablet]]></phrase>
     <phrase title="sedo_at_isCaptivaTablet" version_id="13" version_string="1.5.3"><![CDATA[a Captiva tablet]]></phrase>
     <phrase title="sedo_at_isCelkonTablet" version_id="13" version_string="1.5.3"><![CDATA[a Celkon tablet]]></phrase>
@@ -209,20 +209,20 @@ If you don't use this addon, no matter you choose to display basic or detailed i
     <phrase title="sedo_at_isDigmaTablet" version_id="13" version_string="1.5.3"><![CDATA[a Digma tablet]]></phrase>
     <phrase title="sedo_at_isDPSTablet" version_id="12" version_string="1.5.2"><![CDATA[a DPS tablet]]></phrase>
     <phrase title="sedo_at_isEbodaTablet" version_id="12" version_string="1.5.2"><![CDATA[an Eboda tablet]]></phrase>
-    <phrase title="sedo_at_isECSTablet" version_id="12" version_string="1.5.2"><![CDATA[a ECS tablet]]></phrase>
+    <phrase title="sedo_at_isECSTablet" version_id="16" version_string="1.5.6"><![CDATA[an ECS tablet]]></phrase>
     <phrase title="sedo_at_isEssentielBTablet" version_id="12" version_string="1.5.2"><![CDATA[an EssentielB tablet]]></phrase>
     <phrase title="sedo_at_isEvolioTablet" version_id="13" version_string="1.5.3"><![CDATA[an Evolio tablet]]></phrase>
-    <phrase title="sedo_at_isFly" version_id="6" version_string="1.4"><![CDATA[a Fly device]]></phrase>
+    <phrase title="sedo_at_isFly" version_id="16" version_string="1.5.6"><![CDATA[a Fly mobile device]]></phrase>
     <phrase title="sedo_at_isFlyTablet" version_id="6" version_string="1.4"><![CDATA[a Fly tablet]]></phrase>
     <phrase title="sedo_at_isFujitsuTablet" version_id="12" version_string="1.5.2"><![CDATA[a Fujitsu tablet]]></phrase>
-    <phrase title="sedo_at_isFX2Tablet" version_id="13" version_string="1.5.3"><![CDATA[a FX2 tablet]]></phrase>
+    <phrase title="sedo_at_isFX2Tablet" version_id="16" version_string="1.5.6"><![CDATA[an FX2 tablet]]></phrase>
     <phrase title="sedo_at_isGalapadTablet" version_id="12" version_string="1.5.2"><![CDATA[a Galapad tablet]]></phrase>
     <phrase title="sedo_at_isGoCleverTablet" version_id="12" version_string="1.5.2"><![CDATA[a GoClever tablet]]></phrase>
     <phrase title="sedo_at_isGUTablet" version_id="12" version_string="1.5.2"><![CDATA[a GU tablet]]></phrase>
-    <phrase title="sedo_at_isHCLTablet" version_id="12" version_string="1.5.2"><![CDATA[a HCL tablet]]></phrase>
-    <phrase title="sedo_at_isHPTablet" version_id="12" version_string="1.5.2"><![CDATA[a HP tablet]]></phrase>
-    <phrase title="sedo_at_isHTC" version_id="0" version_string="1"><![CDATA[a HTC device]]></phrase>
-    <phrase title="sedo_at_isHTCtablet" version_id="0" version_string="1"><![CDATA[a HTC tablet]]></phrase>
+    <phrase title="sedo_at_isHCLTablet" version_id="16" version_string="1.5.6"><![CDATA[an HCL tablet]]></phrase>
+    <phrase title="sedo_at_isHPTablet" version_id="16" version_string="1.5.6"><![CDATA[an HP tablet]]></phrase>
+    <phrase title="sedo_at_isHTC" version_id="16" version_string="1.5.6"><![CDATA[an HTC mobile device]]></phrase>
+    <phrase title="sedo_at_isHTCtablet" version_id="16" version_string="1.5.6"><![CDATA[an HTC tablet]]></phrase>
     <phrase title="sedo_at_isHuaweiTablet" version_id="6" version_string="1.4"><![CDATA[a Huawei tablet]]></phrase>
     <phrase title="sedo_at_isHudl" version_id="15" version_string="1.5.5"><![CDATA[a Hudl tablet]]></phrase>
     <phrase title="sedo_at_isIconbitTablet" version_id="13" version_string="1.5.3"><![CDATA[an Iconbit tablet]]></phrase>
@@ -242,12 +242,13 @@ If you don't use this addon, no matter you choose to display basic or detailed i
     <phrase title="sedo_at_isLavaTablet" version_id="13" version_string="1.5.3"><![CDATA[a Lava tablet]]></phrase>
     <phrase title="sedo_at_isLeaderTablet" version_id="15" version_string="1.5.5"><![CDATA[a Leader tablet]]></phrase>
     <phrase title="sedo_at_isLenovoTablet" version_id="12" version_string="1.5.2"><![CDATA[a Lenovo tablet]]></phrase>
-    <phrase title="sedo_at_isLG" version_id="12" version_string="1.5.2"><![CDATA[a LG device]]></phrase>
+    <phrase title="sedo_at_isLG" version_id="16" version_string="1.5.6"><![CDATA[an LG mobile device]]></phrase>
+	<phrase title="sedo_at_isLGTablet" version_id="16" version_string="1.5.6"><![CDATA[an LG tablet]]></phrase>
     <phrase title="sedo_at_isMediatekTablet" version_id="12" version_string="1.5.2"><![CDATA[a Mediatek tablet]]></phrase>
     <phrase title="sedo_at_isMegafonTablet" version_id="12" version_string="1.5.2"><![CDATA[a Megafon tablet]]></phrase>
     <phrase title="sedo_at_isMicromax" version_id="12" version_string="1.5.2"><![CDATA[a Micromax device]]></phrase>
     <phrase title="sedo_at_isMicromaxTablet" version_id="12" version_string="1.5.2"><![CDATA[a Micromax tablet]]></phrase>
-    <phrase title="sedo_at_isMIDTablet" version_id="12" version_string="1.5.2"><![CDATA[a MID tablet]]></phrase>
+    <phrase title="sedo_at_isMIDTablet" version_id="16" version_string="1.5.6"><![CDATA[an MID tablet]]></phrase>
     <phrase title="sedo_at_isMiTablet" version_id="13" version_string="1.5.3"><![CDATA[a Mi tablet]]></phrase>
     <phrase title="sedo_at_isMobile" version_id="0" version_string="1"><![CDATA[a mobile device]]></phrase>
     <phrase title="sedo_at_isModecomTablet" version_id="12" version_string="1.5.2"><![CDATA[a Modecom tablet]]></phrase>
@@ -275,9 +276,9 @@ If you don't use this addon, no matter you choose to display basic or detailed i
     <phrase title="sedo_at_isRockChipTablet" version_id="2" version_string="1.2"><![CDATA[a RockChip tablet]]></phrase>
     <phrase title="sedo_at_isRossMoorTablet" version_id="12" version_string="1.5.2"><![CDATA[a RossMoor tablet]]></phrase>
     <phrase title="sedo_at_isSamsung" version_id="0" version_string="1"><![CDATA[a Samsung mobile device]]></phrase>
-    <phrase title="sedo_at_isSamsungTablet" version_id="0" version_string="1"><![CDATA[a Samsung Tablet]]></phrase>
+    <phrase title="sedo_at_isSamsungTablet" version_id="16" version_string="1.5.6"><![CDATA[a Samsung tablet]]></phrase>
     <phrase title="sedo_at_isSimValley" version_id="12" version_string="1.5.2"><![CDATA[a SimValley device]]></phrase>
-    <phrase title="sedo_at_isSkkTablet" version_id="13" version_string="1.5.3"><![CDATA[a Skk tablet]]></phrase>
+    <phrase title="sedo_at_isSkkTablet" version_id="16" version_string="1.5.6"><![CDATA[an SKK tablet]]></phrase>
     <phrase title="sedo_at_isSMiTTablet" version_id="2" version_string="1.2"><![CDATA[a SMiT tablet]]></phrase>
     <phrase title="sedo_at_isSony" version_id="0" version_string="1"><![CDATA[a Sony mobile device]]></phrase>
     <phrase title="sedo_at_isSonyTablet" version_id="12" version_string="1.5.2"><![CDATA[a Sony tablet]]></phrase>
